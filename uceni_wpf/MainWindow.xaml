@@ -7,8 +7,51 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBlock Name="tbStatus" FontSize="40" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Button Name="btnToggleRun" Width="100" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Run" FontSize="25" Click="btnToggleRun_Click" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition />
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <!-- Menu Bar -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Menu>
+                <MenuItem Header="File" FontSize="14">
+                    <MenuItem Header="Exit"/>
+                </MenuItem>
+                <MenuItem Header="Edit" FontSize="14"/>
+            </Menu>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Button Width="50" Margin="5"/>
+                <TextBox Width="150" Grid.Column="1" Margin="5"/>
+            </Grid>
+        </Grid>
+
+        <!-- Content Pane -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="60*"/>
+                <ColumnDefinition Width="20*"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle Fill="Yellow" Grid.Column="2"/>
+            <Rectangle Fill="green"/>
+            <TextBlock Grid.Column="1" Name="tbStatus" FontSize="40" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <Button Grid.Column="1" Name="btnToggleRun" Width="100" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Run" FontSize="25" Click="btnToggleRun_Click" />
+        </Grid>
+        <!-- Footer -->
+        <Rectangle Fill="blue" Grid.Row="2"/>
 
     </Grid>
 </Window>
